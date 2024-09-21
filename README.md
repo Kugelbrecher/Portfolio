@@ -48,3 +48,29 @@ export default tseslint.config({
   },
 })
 ```
+
+
+## Create App
+The project is created using `vite` with the following command:
+```bash
+yarn create vite portfolio --template react-ts
+```
+
+## Install Dependencies
+```bash
+yarn add package.json
+```
+
+## Start Dev Server
+During development, run the following command to start:
+```bash
+yarn run dev
+# or 
+yarn dev
+```
+
+## Lint
+run the command to clean up the code
+```bash
+yarn lint
+```
