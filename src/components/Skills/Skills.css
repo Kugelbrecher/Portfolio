@@ -1,0 +1,10 @@
+.skills__img{
+    width: 48px;
+    height: 48px;
+}
+
+.skills__list{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Adjust the minimum and maximum width as needed */
+  gap: 10px; 
+}
