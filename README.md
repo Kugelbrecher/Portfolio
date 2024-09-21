@@ -68,3 +68,9 @@ yarn run dev
 # or 
 yarn dev
 ```
+
+## Lint
+run the command to clean up the code
+```bash
+yarn lint
+```
