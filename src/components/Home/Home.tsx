@@ -12,7 +12,7 @@ const Home: React.FC = () => {
 
                     <div className="home__img">
                         <div className="image-wrapper">
-                            <img src="../../assets/img/self1.jpg" alt="Self Portrait" />
+                            <img src="../../assets/img/self1.jpg" alt="" />
                         </div>
                     </div>
 
