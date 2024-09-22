@@ -1,6 +1,6 @@
 import React from 'react';
 import './About.css';
-import ABOUT from '../../assets/img/cat.jpg';
+import catIMG from '../../assets/img/cat.jpg';
 import DS_RESUME from '../../assets/pdf/Nik Resume.pdf';
 
 
@@ -10,11 +10,15 @@ const About: React.FC = () => {
             <h2 className="section__title">About Me</h2>
             <span className="section__subtitle">My introduction</span>
             <div className="about__container container grid">
-                <img src={ABOUT} alt="About me" className="about__img" />
+                <img 
+                    src={catIMG} 
+                    alt="About me" 
+                    className="about__img" 
+                />
 
                 <div className="about__data">
                     <p className="about__description">
-                        I am currently looking for <span style={{color: '#f9ab00'}}> full-time</span> opportunities 
+                        I am looking for <span style={{color: '#f9ab00'}}> full-time</span> opportunities 
                         in data science, data analysis, and software engineering.
                         I graduated in <span style={{color: '#f9ab00'}}>December 2023</span> with a Master of 
                         Data Science degree from Rice University and I am open to relocation and remote work.

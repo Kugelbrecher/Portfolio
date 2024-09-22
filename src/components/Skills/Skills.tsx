@@ -13,23 +13,31 @@ interface SkillCategory {
   skills: SkillData[];
 }
 
+// https://devicon.dev/
 const skillCategories: SkillCategory[] = [
     {
         title: 'Data',
         subtitle: 'More than 3 years',
         icon: 'uil uil-percentage',
         skills: [
-            { name: 'Python', imgSrc: 'https://img.icons8.com/color/48/000000/python--v1.png' },
-            { name: 'PostgreSQL', imgSrc: 'https://img.icons8.com/color/48/000000/postgreesql.png' },
-            { name: 'AWS', imgSrc: 'https://img.icons8.com/color/48/000000/amazon-web-services.png' },
+            { name: 'Python', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
+            { name: 'Pandas', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg' },
+            { name: 'scikit', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg' },
+            { name: 'PostgreSQL', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-plain.svg' },
+            { name: 'AWS', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
             { name: 'Tableau', imgSrc: 'https://img.icons8.com/color/48/000000/tableau-software.png' },
+            { name: 'matplotlib', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg' },
+            { name: 'seaborn', imgSrc: 'https://seaborn.pydata.org/_images/logo-mark-lightbg.svg' },
             { name: 'Excel', imgSrc: 'https://img.icons8.com/color/48/000000/microsoft-excel-2019--v1.png' },
-            { name: 'Pytorch', imgSrc: 'https://pytorch.org/assets/images/pytorch-logo.png' },
-            { name: 'CV', imgSrc: 'https://img.icons8.com/color/48/000000/opencv.png' },
+            { name: 'Pytorch', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg' },
+            { name: 'TensorFlow', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg' },
+            { name: 'CV', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/opencv/opencv-original.svg' },
             { name: 'NLP', imgSrc: 'https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-natural-language-processing-big-data-flaticons-lineal-color-flat-icons.png' },  
             { name: 'Spark', imgSrc: 'https://cdn.icon-icons.com/icons2/2699/PNG/512/apache_spark_logo_icon_170560.png' },
             { name: 'STATA', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/stata/stata-original-wordmark.svg' },
-
+            { name: 'MySQL', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
+            { name: 'MongoDB', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg' },
+            { name: 'SAS', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg' },
         ]
     },
     {
@@ -37,23 +45,28 @@ const skillCategories: SkillCategory[] = [
         subtitle: 'More than 1 year',
         icon: 'uil uil-brackets-curly',
         skills: [
-            { name: 'AWS', imgSrc: 'https://img.icons8.com/color/48/000000/amazon-web-services.png' },
-            { name: 'Google Cloud', imgSrc: 'https://img.icons8.com/color/48/000000/google-cloud.png' },
-            { name: 'HTML', imgSrc: 'https://img.icons8.com/color/48/000000/html-5--v1.png' },
-            { name: 'CSS', imgSrc: 'https://img.icons8.com/color/48/000000/css3.png' },
-            { name: 'JavaScript', imgSrc: 'https://img.icons8.com/color/48/000000/javascript--v1.png' },
-            { name: 'TypeScript', imgSrc: 'https://img.icons8.com/color/48/000000/typescript--v1.png' },
-            { name: 'MongoDB', imgSrc: 'https://img.icons8.com/color/48/000000/mongodb.png' },
-            { name: 'React', imgSrc: 'https://img.icons8.com/color/48/000000/react-native.png' },
+            { name: 'AWS', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
+            { name: 'Google Cloud', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg' },
+            { name: 'HTML', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' },
+            { name: 'CSS', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg' },
+            { name: 'JavaScript', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg' },
+            { name: 'TypeScript', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-plain.svg' },
+            { name: 'ESLint', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/eslint/eslint-original.svg' },
+            { name: 'Mongoose', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongoose/mongoose-original.svg' },
+            { name: 'PostgreSQL', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-plain.svg' },
+            { name: 'Flask', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg' },
+            { name: 'React', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
             { name: 'REST API', imgSrc: 'https://www.clipartmax.com/png/middle/285-2851044_restful-search-api-rest-web-services-logo.png' },
-            { name: 'Node.js', imgSrc: 'https://img.icons8.com/color/48/000000/nodejs.png' },
-            { name: 'Heroku', imgSrc: 'https://img.icons8.com/color/48/000000/heroku.png' },
-            { name: 'Git', imgSrc: 'https://img.icons8.com/color/48/000000/git.png' },
-            { name: 'VS Code', imgSrc: 'https://cdn.icon-icons.com/icons2/2107/PNG/48/file_type_vscode_icon_130084.png' },
-            { name: 'IntelliJ', imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/IntelliJ_IDEA_Icon.svg/1024px-IntelliJ_IDEA_Icon.svg.png' },
-            { name: 'Flask', imgSrc: 'https://img.icons8.com/color/48/000000/flask.png' },
+            { name: 'Node.js', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
+            { name: 'Heroku', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/heroku/heroku-original.svg' },
+            { name: 'Git', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
+            { name: 'VS Code', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg' },
+            { name: 'IntelliJ', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/intellij/intellij-original.svg' },
+            { name: 'Nginx', imgSrc: 'https://img.icons8.com/color/48/000000/nginx.png' },
+            // { name: 'Nginx', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg' },
+            { name: 'Bash', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg' },
             { name: 'Material UI', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materialui/materialui-original.svg' },
-            { name: 'Bootstrap', imgSrc: 'https://img.icons8.com/color/48/000000/bootstrap.png' },
+            { name: 'Bootstrap', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg' },
 
         ]
     }
