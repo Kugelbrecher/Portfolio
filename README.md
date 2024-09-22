@@ -26,7 +26,10 @@ yarn lint
 ```
 
 ## Deploy
-Github Pages
+Github Pages: Even this project is using yarn, we should still run
+```bash
+npm run deploy
+```
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
