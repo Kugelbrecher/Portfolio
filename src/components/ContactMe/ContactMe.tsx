@@ -9,7 +9,7 @@ const ContactMe: React.FC = () => {
         e.preventDefault();
 
         if (form.current) {
-            emailjs.sendForm('service_nfuuwje', 'template_ujucvso', form.current, 'BRpNbyMP2mhZu6V3d')
+            emailjs.sendForm('service_nfuuwje', 'template_j5977zs', form.current, 'BRpNbyMP2mhZu6V3d')
                 .then((result) => {
                     console.log(result.text);
                 }, (error) => {
