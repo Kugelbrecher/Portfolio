@@ -33,7 +33,7 @@ export default tseslint.config(
       "max-len": [
         "error",
         {
-          code: 170,
+          code: 300,
         },
       ],
       indent: ["error", 4],
