@@ -1,215 +1,149 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './Experience.css';
 
-function Experience() {
-    const [activeTab, setActiveTab] = useState(1);
+interface QualificationData {
+  title: string;
+  subtitle: string;
+  date: string;
+}
 
-    function switchTab(index) {
-        setActiveTab(index);
-        if (index === 1) {
-            document.getElementById('education').classList.add('qualification__active');
-            document.getElementById('work').classList.remove('qualification__active');
+interface QualificationSection {
+  education: QualificationData[];
+  work: QualificationData[];
+}
+
+const qualificationData: QualificationSection = {
+    education: [
+        {
+            title: 'M.S. in Data Science',
+            subtitle: 'Rice University',
+            date: '2022.08 - 2023.12'
+        },
+        {
+            title: 'B.S. in Mathematical Science & B.A. in Economics (honor)',
+            subtitle: 'University of California, Santa Barbara',
+            date: '2017.09 - 2021.06'
         }
-        else {
-            document.getElementById('education').classList.remove('qualification__active');
-            document.getElementById('work').classList.add('qualification__active');
-        }
-    }
+    ],
+    work: [
+        {
+            title: 'Full-Stack Data Scientist',
+            subtitle: 'Prospect Equities',
+            date: '2024.02 - Now'
+        },
+        {
+            title: 'Performance Engineer intern',
+            subtitle: 'Silicon Ranch Corporation',
+            date: '2023.05 - 2023.08'
+        },
+        {
+            title: 'Machine Learning Engineer intern',
+            subtitle: 'Consentify',
+            date: '2023.05 - 2023.08'
+        },
+        {
+            title: 'Research Fellow',
+            subtitle: 'Rice Fondren Library',
+            date: '2022.09 - 2023.05'
+        },
+        {
+            title: 'Operational Analyst',
+            subtitle: 'Fuhe New Materials',
+            date: '2021.10 - 2022.07'
+        },
+    ]
+};
+
+const Experience: React.FC = () => {
+    const [activeTab, setActiveTab] = useState<'education' | 'work'>('education');
+
+    const switchTab = (tab: 'education' | 'work') => {
+        setActiveTab(tab);
+    };
+
+    const renderQualificationData = (data: QualificationData, isLeft: boolean) => (
+        <div className="qualification__data">
+            {isLeft ? (
+                <>
+                    <div>
+                        <h3 className="qualification__title">{data.title}</h3>
+                        <span className="qualification__subtitle">{data.subtitle}</span>
+                        <div className="qualification__calendar">
+                            <i className="uil uil-calendar-alt"></i> {data.date}
+                        </div>
+                    </div>
+                    <div>
+                        <span className="qualification__rounder"></span>
+                        <span className="qualification__line"></span>
+                    </div>
+                </>
+            ) : (
+                <>
+                    <div></div>
+                    <div>
+                        <span className="qualification__rounder"></span>
+                        <span className="qualification__line"></span>
+                    </div>
+                    <div>
+                        <h3 className="qualification__title">{data.title}</h3>
+                        <span className="qualification__subtitle">{data.subtitle}</span>
+                        <div className="qualification__calendar">
+                            <i className="uil uil-calendar-alt"></i> {data.date}
+                        </div>
+                    </div>
+                </>
+            )}
+        </div>
+    );
 
     return (
-        <section class="qualification section">
+        <section className="qualification section">
+            <h2 className="section__title">Experience</h2>
+            <span className="section__subtitle">My personal journey</span>
 
-            {/* sectionn title */}
-            <h2 class="section__title" i18n="qualification__title">
-          Experinece
-            </h2>
-            <span class="section__subtitle" i18n="qualification__subtitle">
-          My personal journey 
-            </span>
-
-
-            <div class="qualification__container container">
-                <div class="qualification__tabs">
+            <div className="qualification__container container">
+                <div className="qualification__tabs">
                     <div
-                        class={`qualification__button button--flex ${activeTab === 1 ? 'qualification__active' : ''}`}
-                        data-target="#education"
-                        onClick={() => switchTab(1)}
+                        className={`qualification__button button--flex ${activeTab === 'education' ? 'qualification__active' : ''}`}
+                        onClick={() => switchTab('education')}
                     >
-                        <i class="uil uil-graduation-cap qualification__icon"></i>
-                        <span i18n="education">Education</span>
+                        <i className="uil uil-graduation-cap qualification__icon"></i>
+                        Education
                     </div>
 
-                    <div class={`qualification__button button--flex ${activeTab === 2 ? 'qualification__active' : ''}`}
-                        data-target="#work"
-                        onClick={() => switchTab(2)}
+                    <div
+                        className={`qualification__button button--flex ${activeTab === 'work' ? 'qualification__active' : ''}`}
+                        onClick={() => switchTab('work')}
                     >
-                        <i class="uil uil-briefcase-alt qualification__icon"></i>
-                        <span i18n="work">Work</span>
+                        <i className="uil uil-briefcase-alt qualification__icon"></i>
+                        Work
                     </div>
                 </div>
 
-
-                <div class="qualification__sections">
-                    {/* education */}
+                <div className="qualification__sections">
                     <div
-                        class="qualification__content qualification__active"
+                        className={`qualification__content ${activeTab === 'education' ? 'qualification__active' : ''}`}
                         data-content
                         id="education"
                     >
-     
-                        <div class="qualification__data">
-                            <div>
-                                <h3 class="qualification__title" i18n="qualification1__title">
-                    MS in Data Science
-                                </h3>
-                                <span
-                                    class="qualification__subtitle"
-                                    i18n="qualification1__subtitle"
-                                >Rice University</span
-                                >
-                                <div class="qualification__calendar">
-                                    <i class="uil uil-calendar-alt"></i>
-                    2022.08 - 2023.12
-                                </div>
-                  
-                  
-                            </div>
-
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-                        </div>
-           
-                        <div class="qualification__data">
-                            <div></div>
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-
-                            <div>
-                                <h3 class="qualification__title" i18n="qualification2__title">
-                  B.S. in Mathematical Science
-                  B.A. in Economics (honor)
-                                </h3>
-                                <span
-                                    class="qualification__subtitle"
-                                    i18n="qualification2__subtitle"
-                                >University of California, Santa Barbara</span
-                                >
-                                <div class="qualification__calendar">
-                                    <i class="uil uil-calendar-alt"></i>
-                    2017.09 - 2021.06
-                                </div>
-                            </div>
-                        </div>
-           
+                        {qualificationData.education.map((item, index) => (
+                            renderQualificationData(item, index % 2 === 0)
+                        ))}
                     </div>
 
-                    {/* work */}
                     <div
-                        class="qualification__content"
+                        className={`qualification__content ${activeTab === 'work' ? 'qualification__active' : ''}`}
                         data-content
                         id="work"
                     >
-     
-                        <div class="qualification__data">
-                            <div>
-                                <h3 class="qualification__title" i18n="qualification1__title">
-                    Performance Engineer intern
-                                </h3>
-                                <span
-                                    class="qualification__subtitle"
-                                    i18n="qualification1__subtitle">
-                      Silicon Ranch Corporation 
-                                </span>
-                                <div class="qualification__calendar">
-                                    <i class="uil uil-calendar-alt"></i>
-                    2023.05 - 2023.08
-                                </div>
-                            </div>
-
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-                        </div>
-           
-                        <div class="qualification__data">
-                            <div></div>
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-
-                            <div>
-                                <h3 class="qualification__title" i18n="qualification2__title">
-                  Machine Learning Engineer intern
-                                </h3>
-                                <span
-                                    class="qualification__subtitle"
-                                    i18n="qualification2__subtitle">
-                      Consentify 
-                                </span>
-                                <div class="qualification__calendar">
-                                    <i class="uil uil-calendar-alt"></i>
-                    2023.05 - 2023.08
-                                </div>
-                            </div>
-                        </div>
-           
-                        <div class="qualification__data">
-                            <div>
-                                <h3 class="qualification__title" i18n="qualification1__title">
-                    Research Fellow 
-                                </h3>
-                                <span
-                                    class="qualification__subtitle"
-                                    i18n="qualification1__subtitle">
-                      Rice Fondren Library
-                                </span>
-                                <div class="qualification__calendar">
-                                    <i class="uil uil-calendar-alt"></i>
-                    2022.09 - 2023.05
-                                </div>
-                            </div>
-
-                            <div>
-                                <span class="qualification__rounder"></span>
-                                <span class="qualification__line"></span>
-                            </div>
-                        </div>
-
-                        {/* <div class="qualification__data">
-                <div></div>
-                <div>
-                  <span class="qualification__rounder"></span>
-                  <span class="qualification__line"></span>
-                </div>
-
-                <div>
-                  <h3 class="qualification__title" i18n="qualification2__title">
-                  BS in Data Science
-                  </h3>
-                  <span
-                    class="qualification__subtitle"
-                    i18n="qualification2__subtitle"
-                    >University of California, Irvine</span
-                  >
-                  <div class="qualification__calendar">
-                    <i class="uil uil-calendar-alt"></i>
-                    2017.09 - 2022.07
-                  </div>
-                </div>
-              </div> */}
-
+                        {qualificationData.work.map((item, index) => (
+                            renderQualificationData(item, index % 2 === 0)
+                        ))}
                     </div>
-
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
 export default Experience;

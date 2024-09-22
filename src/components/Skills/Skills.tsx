@@ -1,292 +1,114 @@
+import React, { useState } from 'react';
 import './Skills.css';
 
+interface SkillData {
+  name: string;
+  imgSrc: string;
+}
 
-function Skills() {
-    const toggleSkills = (e) => {
-        const itemClass = e.currentTarget.parentNode.parentNode.className
+interface SkillCategory {
+  title: string;
+  subtitle: string;
+  icon: string;
+  skills: SkillData[];
+}
 
-        if (itemClass === 'skills__content skills__close') {
-            e.currentTarget.parentNode.parentNode.className = 'skills__content skills__open'
-        } else {
-            e.currentTarget.parentNode.parentNode.className = 'skills__content skills__close'
-        }
+const skillCategories: SkillCategory[] = [
+    {
+        title: 'Data',
+        subtitle: 'More than 3 years',
+        icon: 'uil uil-percentage',
+        skills: [
+            { name: 'Python', imgSrc: 'https://img.icons8.com/color/48/000000/python--v1.png' },
+            { name: 'PostgreSQL', imgSrc: 'https://img.icons8.com/color/48/000000/postgreesql.png' },
+            { name: 'AWS', imgSrc: 'https://img.icons8.com/color/48/000000/amazon-web-services.png' },
+            { name: 'Tableau', imgSrc: 'https://img.icons8.com/color/48/000000/tableau-software.png' },
+            { name: 'Excel', imgSrc: 'https://img.icons8.com/color/48/000000/microsoft-excel-2019--v1.png' },
+            { name: 'Pytorch', imgSrc: 'https://pytorch.org/assets/images/pytorch-logo.png' },
+            { name: 'CV', imgSrc: 'https://img.icons8.com/color/48/000000/opencv.png' },
+            { name: 'NLP', imgSrc: 'https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-natural-language-processing-big-data-flaticons-lineal-color-flat-icons.png' },  
+            { name: 'Spark', imgSrc: 'https://cdn.icon-icons.com/icons2/2699/PNG/512/apache_spark_logo_icon_170560.png' },
+            { name: 'STATA', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/stata/stata-original-wordmark.svg' },
+
+        ]
+    },
+    {
+        title: 'Development',
+        subtitle: 'More than 1 year',
+        icon: 'uil uil-brackets-curly',
+        skills: [
+            { name: 'AWS', imgSrc: 'https://img.icons8.com/color/48/000000/amazon-web-services.png' },
+            { name: 'Google Cloud', imgSrc: 'https://img.icons8.com/color/48/000000/google-cloud.png' },
+            { name: 'HTML', imgSrc: 'https://img.icons8.com/color/48/000000/html-5--v1.png' },
+            { name: 'CSS', imgSrc: 'https://img.icons8.com/color/48/000000/css3.png' },
+            { name: 'JavaScript', imgSrc: 'https://img.icons8.com/color/48/000000/javascript--v1.png' },
+            { name: 'TypeScript', imgSrc: 'https://img.icons8.com/color/48/000000/typescript--v1.png' },
+            { name: 'MongoDB', imgSrc: 'https://img.icons8.com/color/48/000000/mongodb.png' },
+            { name: 'React', imgSrc: 'https://img.icons8.com/color/48/000000/react-native.png' },
+            { name: 'REST API', imgSrc: 'https://www.clipartmax.com/png/middle/285-2851044_restful-search-api-rest-web-services-logo.png' },
+            { name: 'Node.js', imgSrc: 'https://img.icons8.com/color/48/000000/nodejs.png' },
+            { name: 'Heroku', imgSrc: 'https://img.icons8.com/color/48/000000/heroku.png' },
+            { name: 'Git', imgSrc: 'https://img.icons8.com/color/48/000000/git.png' },
+            { name: 'VS Code', imgSrc: 'https://cdn.icon-icons.com/icons2/2107/PNG/48/file_type_vscode_icon_130084.png' },
+            { name: 'IntelliJ', imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/IntelliJ_IDEA_Icon.svg/1024px-IntelliJ_IDEA_Icon.svg.png' },
+            { name: 'Flask', imgSrc: 'https://img.icons8.com/color/48/000000/flask.png' },
+            { name: 'Material UI', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materialui/materialui-original.svg' },
+            { name: 'Bootstrap', imgSrc: 'https://img.icons8.com/color/48/000000/bootstrap.png' },
+
+        ]
     }
+];
+
+const SkillItem: React.FC<{ skill: SkillData }> = ({ skill }) => (
+    <div className="skills__data">
+        <img className="skills__img" src={skill.imgSrc} alt={skill.name} />
+        <div className="skills__titles">
+            <h3 className="skills__name">{skill.name}</h3>
+        </div>
+    </div>
+);
+
+const SkillCategory: React.FC<{ category: SkillCategory }> = ({ category }) => {
+    const [isOpen, setIsOpen] = useState(true);
+
+    const toggleSkills = () => setIsOpen(!isOpen);
 
     return (
-
-        <section class="skills section" id="skills">
-            <h2 class="section__title" i18n="skills__title">Skills</h2>
-            <span class="section__subtitle" i18n="skills__subtitle"
-            >My technical level</span
-            >
-
-            <div class="skills__container container grid">
+        <div className={`skills__content ${isOpen ? 'skills__open' : 'skills__close'}`}>
+            <div className="skills__header">
+                <i className={`${category.icon} skills__icon`}></i>
                 <div>
-       
-                    <div class="skills__content skills__open"
-                    >
-                        <div class="skills__header">
-                            <i class="uil uil-percentage skills__icon"></i>
+                    <h1 className="skills__title">{category.title}</h1>
+                    <span className="skills__subtitle">{category.subtitle}</span>
+                </div>
+                <i 
+                    className="uil uil-angle-down skills__arrow" 
+                    onClick={toggleSkills}
+                ></i>
+            </div>
+            <div className="skills__list grid">
+                {category.skills.map((skill, index) => (
+                    <SkillItem key={index} skill={skill} />
+                ))}
+            </div>
+        </div>
+    );
+};
 
-                            <div>
-                                <h1 class="skills__title" i18n="home__subtitle">
-                  Data scientist/ Data analyst
-                                </h1>
-                                <span class="skills__subtitle" i18n="skills__years"
-                                >More than 3 years</span
-                                >
-                            </div>
-
-                            <i class="uil uil-angle-down skills__arrow" onClick={toggleSkills}
-                            ></i>
-                        </div>
-
-                        <div class="skills__list grid">
-
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://img.icons8.com/color/48/000000/python--v1.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Python</h3>
-                                </div>
-                            </div>
-
-                            <div class="skills__data">
-                                <img class = "skills__img"
-                                    src="https://www.clipartmax.com/png/middle/13-137348_logo-r-programming.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">R</h3>
-                                </div>
-                            </div>
-
-                            <div class="skills__data">
-                                <img class = "skills__img" 
-                                    src="https://img.icons8.com/color/48/000000/tableau-software.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Tableau</h3>
-
-                                </div>
-                            </div>
-
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://img.icons8.com/color/48/000000/mysql-logo.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">MySQL</h3>
-                                </div>
-                            </div>
-
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://img.icons8.com/color/48/000000/mongodb.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">MongoDB</h3>
-                                </div>
-                            </div>
-
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://img.icons8.com/color/48/000000/power-bi.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Power BI</h3>
-                                </div>
-                            </div>
-
-
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://img.icons8.com/color/48/000000/amazon-web-services.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">AWS</h3>
-                                </div>
-                            </div>
-                            {/* databrick */}
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://s3.us-east-1.amazonaws.com/accredible_temp_credential_images/16002836894132567677717491881160.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Databricks</h3>
-                                </div>
-                            </div>
-
-                            {/* spark */}
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://cdn.icon-icons.com/icons2/2699/PNG/512/apache_spark_logo_icon_170560.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Spark</h3>
-                                </div>
-                            </div>
-
-                            {/* snowflakes */}
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://img.icons8.com/color/48/000000/snowflake.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Snowflake</h3>
-                                </div>
-                            </div>
-
-                            {/* excel */}
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://img.icons8.com/color/48/000000/microsoft-excel-2019--v1.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Excel</h3>
-                                </div>
-                            </div>
-
-                            {/* clickhouse */}
-
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://cdn.worldvectorlogo.com/logos/clickhouse.svg"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Clickhouse</h3>
-                                </div>
-                            </div>
-
-                            {/* postgresql*/}
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://img.icons8.com/color/48/000000/postgreesql.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">PostgreSQL</h3>
-                                </div>
-                            </div>
-
-                            {/* pytorch */}
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://pytorch.org/assets/images/pytorch-logo.png" alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Pytorch</h3>
-                                </div>
-                            </div>
-
-                
-
-              
-
-                        </div>
-                    </div>
-       
-                    <div class="skills__content skills__close">
-                        <div class="skills__header">
-                            <i class="uil uil-brackets-curly skills__icon"></i>
-
-                            <div>
-                                <h1 class="skills__title" i18n="skills__title2">
-                  Web developer
-                                </h1>
-                                <span class="skills__subtitle" i18n="skills__years2"
-                                >More than 1 years</span
-                                >
-                            </div>
-
-                            <i class="uil uil-angle-down skills__arrow" onClick={toggleSkills} ></i>
-                        </div>
-
-                        <div class="skills__list grid">
-
-
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://img.icons8.com/color/48/000000/html-5--v1.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">HTML</h3>
-                                </div>
-                            </div>
-              
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://img.icons8.com/color/48/000000/css3.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">CSS</h3>
-                                </div>
-                            </div>
-              
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://img.icons8.com/color/48/000000/javascript--v1.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">JavaScript</h3>
-                                </div>
-                            </div>
-
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://img.icons8.com/color/48/000000/react-native.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">React</h3>
-                                </div>
-                            </div>
-
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://img.icons8.com/color/48/000000/bootstrap.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Bootstrap</h3>
-                                </div>
-                            </div>
-
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://img.icons8.com/color/48/000000/java-coffee-cup-logo--v1.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Java</h3>
-                                </div>
-                            </div>
-
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://img.icons8.com/color/48/000000/python--v1.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Python</h3>
-                                </div>
-                            </div>
-
-                            {/* restapi */}
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://www.clipartmax.com/png/middle/285-2851044_restful-search-api-rest-web-services-logo.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">REST API</h3>
-                                </div>
-                            </div>
-
-                            {/* nodejs */}
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://img.icons8.com/color/48/000000/nodejs.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Node.js</h3>
-                                </div>
-                            </div>
-
-                            {/* heroku */}
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://img.icons8.com/color/48/000000/heroku.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Heroku</h3>
-                                </div>
-                            </div>
-
-                            {/* mongodb */}
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://img.icons8.com/color/48/000000/mongodb.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">MongoDB</h3>
-                                </div>
-                            </div>
-
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://img.icons8.com/color/48/000000/git.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">Git</h3>
-                                </div>
-                            </div>
-
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://cdn.icon-icons.com/icons2/2107/PNG/48/file_type_vscode_icon_130084.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">VS Code</h3>
-                                </div>
-                            </div>
-
-                            <div class="skills__data">
-                                <img class = "skills__img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/IntelliJ_IDEA_Icon.svg/1024px-IntelliJ_IDEA_Icon.svg.png"alt=""/>
-                                <div class="skills__titles">
-                                    <h3 class="skills__name">IntelliJ</h3>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
+const Skills: React.FC = () => {
+    return (
+        <section className="skills section" id="skills">
+            <h2 className="section__title">Skills</h2>
+            <span className="section__subtitle">My technical level</span>
+            <div className="skills__container container grid">
+                <div>
+                    {skillCategories.map((category, index) => (
+                        <SkillCategory key={index} category={category} />
+                    ))}
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
 export default Skills;
