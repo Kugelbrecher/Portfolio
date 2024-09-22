@@ -1,5 +1,33 @@
 # React + TypeScript + Vite
 
+## Create App
+The project is created using `vite` with the following command:
+```bash
+yarn create vite portfolio --template react-ts
+```
+
+## Install Dependencies
+```bash
+yarn add package.json
+```
+
+## Start Dev Server
+During development, run the following command to start:
+```bash
+yarn run dev
+# or 
+yarn dev
+```
+
+## Lint
+run the command to clean up the code
+```bash
+yarn lint
+```
+
+## Deploy
+Github Pages
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
@@ -47,30 +75,4 @@ export default tseslint.config({
     ...react.configs['jsx-runtime'].rules,
   },
 })
-```
-
-
-## Create App
-The project is created using `vite` with the following command:
-```bash
-yarn create vite portfolio --template react-ts
-```
-
-## Install Dependencies
-```bash
-yarn add package.json
-```
-
-## Start Dev Server
-During development, run the following command to start:
-```bash
-yarn run dev
-# or 
-yarn dev
-```
-
-## Lint
-run the command to clean up the code
-```bash
-yarn lint
 ```
