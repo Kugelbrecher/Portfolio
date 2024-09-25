@@ -29,7 +29,7 @@ const About: React.FC = () => {
                         <br />
                         <br />
                         I'm a quick learner and a team player. I enjoy communicating with people and I'm always 
-                        willing to help others. Besides, I'm a cat person and can't wait to have one someday!
+                        willing to help others. Besides, I'm a cat person and my cat Eis is 6 year-old now!
                         <br />
                         <br />
                         Please feel free to <a href="#contact">contact me </a> if you have any questions or opportunities!
