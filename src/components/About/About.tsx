@@ -19,7 +19,7 @@ const About: React.FC = () => {
                 <div className="about__data">
                     <p className="about__description">
                         I am looking for <span style={{color: '#f9ab00'}}> full-time</span> opportunities 
-                        in data science, data analysis, and software engineering.
+                        in data science, data analysis, data engineer, and software engineering.
                         I graduated in <span style={{color: '#f9ab00'}}>December 2023</span> with a Master of 
                         Data Science degree from Rice University and I am open to relocation and remote work.
                         <br />
